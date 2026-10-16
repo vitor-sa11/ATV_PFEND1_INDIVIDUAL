@@ -1,10 +1,5 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import PainelChamados from "../componentes/PainelChamados.jsx";
 
-export default function Home() {
-  return (
-    <main>
-      
-    </main>
-  );
+export default function PaginaInicial() {
+  return <PainelChamados />;
 }

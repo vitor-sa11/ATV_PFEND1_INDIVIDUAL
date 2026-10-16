@@ -1,0 +1,15 @@
+{
+  "name": "@uptimesys/backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test src/tests/*.test.js",
+    "check": "node --check src/server.js && node --check src/app.js && node --check src/config/ambiente.js && node --check src/middlewares/tratamentoErros.js && node --check src/routes/chamadoRoutes.js && node --check src/controllers/ChamadoController.js && node --check src/services/ChamadoService.js && node --check src/models/Chamado.js && node --check src/models/ChamadoModel.js"
+  },
+  "dependencies": {
+    "express": "5.2.1"
+  }
+}

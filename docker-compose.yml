@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      PORTA_API: 4001
+      ENDERECO_API: 0.0.0.0
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - fetch('http://127.0.0.1:4001/api/saude').then((resposta) => { if (!resposta.ok) process.exit(1); }).catch(() => process.exit(1))
+      interval: 15s
+      timeout: 4s
+      retries: 4
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        URL_API: http://backend:4001
+    environment:
+      PORT: 3000
+      URL_API: http://backend:4001
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
