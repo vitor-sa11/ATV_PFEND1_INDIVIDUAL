@@ -8,8 +8,10 @@ export const metadata = {
 
 export default function LayoutRaiz({ children: conteudo }) {
   return (
-    <html lang="pt-BR">
-      <body>{conteudo}</body>
-    </html>
+    <>
+      <html lang="pt-BR">
+        <body>{conteudo}</body>
+      </html>
+    </>
   );
 }
